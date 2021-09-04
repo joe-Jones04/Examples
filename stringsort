@@ -1,0 +1,76 @@
+string = input("Please enter a string\n--> ")
+char_val = []
+
+def char():
+    for i in range(0,len(string)):
+        char_val.append(ord(string[i]))
+        
+    sort()
+
+
+#this sort only sorts each individual word and ignore spaces
+def sort():
+    sorting = True
+    sort = 0
+    while sorting:
+        for x in range(0,len(char_val)):
+            try:
+                if char_val[x] != 32 and char_val[x+1] != 32:
+                    if char_val[x] > char_val[x+1]:
+                        sort =- 1
+                        target_num1 = char_val[x]
+                        target_num2 = char_val[x+1]
+                        char_val[x] = target_num2
+                        char_val[x+1] = target_num1
+                         
+                    else:
+                        sort += 1
+                        if sort == len(char_val):
+                            print("array sorted")
+                            alpha()
+                            sorting = False
+                else:
+                    pass
+            except IndexError:
+                x = 0
+
+
+#this sorts the whole string including spaces
+"""
+def sort(char_val):
+    sorting = True
+    while sorting:
+        for x in range(0,len(char_val)):
+            try:
+                if char_val[x] > char_val[x+1]:
+                    sort =- 1
+                    target_num1 = char_val[x]
+                    target_num2 = char_val[x+1]
+                    char_val[x] = target_num2
+                    char_val[x+1] = target_num1
+                else:
+                    sort += 1
+                    if sort == len(char_val):
+                        print("array sorted")
+                        alpha(char_val)
+                        sorting = False
+            except IndexError:
+                x = 0
+"""
+            
+ 
+def alpha():
+    ordered = ""
+    for z in range(0,len(char_val)):
+        ordered += chr(char_val[z])
+
+    print("'",ordered,"'")
+
+
+        
+                
+
+
+   
+
+char()
