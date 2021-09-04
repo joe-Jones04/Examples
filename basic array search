@@ -1,0 +1,48 @@
+import random
+#globals
+searching = True
+done = False
+ary = [1,2,3,4,5,6,7,8,9]
+random.shuffle(ary)
+
+
+def sort(ary):
+    sort = 0
+    print("array is not sorted")
+    ordered = False
+    while not ordered:
+        for x in range(0,len(ary)):
+            try:
+                if ary[x] > ary[x+1]:
+                    sort =- 1
+                    target_num1 = ary[x]
+                    target_num2 = ary[x+1]
+                    ary[x] = target_num2
+                    ary[x+1] = target_num1
+                else:
+                    sort += 1
+                    if sort == len(ary):
+                        print("array sorted")
+                        search(searching)
+            except IndexError:
+                x = 0
+
+
+def search(searching):
+    search = int(input("enter a number you would like to search for\n -->"))
+    while searching:
+        for i in range(0,len(ary)):
+            if  search == ary[i]:
+                print("your number",ary[i],"was indexed at place ",i," in the array")
+                searching = False
+                done = True
+                break
+        if done == True:
+            break
+        else:
+            print("your number could not be found while searching")
+            searching = False
+            
+    
+sort(ary)
+print("ended")
